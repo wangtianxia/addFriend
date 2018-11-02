@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!--style 样式标签 该标签里面存放Css样式语句  可以给元素添加装饰效果  宽度
+			高度
+			背景颜色
+			字体大小
+			字体系列
+			
+		-->
+		<link rel="stylesheet" type="text/css" href="css/animate.css"  />
+		<style>
+			/*
+			 	出于项目性能优化考虑，实际开发过程 避免使用*
+			 	* —— 通配符 代表所有 等于把整个网页标签都加载该样式
+			 	
+			 	解决方法：
+			 		用到了哪一些标签，然后该标签默认样式 重新设置 单独找到 通过群组选择批量去
+			 		修改
+			 * */
+			*{margin: 0px; padding: 0px;}/*消除因为标签默认间距和填充带来布局影响*/
+			a{text-decoration: none;/*消除超链接下划线*/}
+			ul li{list-style: none;}
+			/*通过after伪元素 在父元素内容加载完毕之后 在其后面添加清楚浮动*/
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;/*清楚浮动*/
+			}
+			.button{
+				width: 180px;
+				height: 35px;
+				display: block;
+				/* rgba rgb 颜色三原色 红色 绿色 蓝色  a = alpha 通道*/
+				background: rgba(0,0,0,0.3);
+				/*Css3 边框圆角 把直角改成圆角*/
+				border-radius: 8px;
+				color: #fff;
+				line-height: 35px;
+				text-align: center;
+				font-size: 14px;
+				margin: 50px auto 150px;
+			}
+			.button:hover{
+				background: rgba(0,0,0,0.6);
+				
+			}
+			.wrap{
+				width: 576px;
+				height: 530px;
+				border: 1px solid #000;
+				margin: 0 auto;
+				display: none;
+			}
+			/*title*/
+			.title{
+				width: 576px;
+				height: 30px;
+				background: #039AE3;
+				color: #fff;
+			}
+			.title h3{
+				font-size: 14px;
+				line-height: 30px;
+				margin-left: 10px;
+				float: left;
+			}
+			.title a{
+				font-size: 18px;
+				color: #fff;
+				font-weight: 700;
+				float: right;
+				margin-right: 15px;
+				line-height: 30px;
+				
+			}
+			
+			/*content*/
+			.content{
+				width:536px; 
+				padding: 20px;
+				/*
+				 height con_list con_btn con_list 浮动
+				 * */
+			}
+			/*数据源*/
+			.con_list{
+				width: 210px;
+				height: 370px;
+				float: left;
+			}
+			.con_list h4{
+				font-size: 14px;
+				color: #434343;
+				margin-bottom: 10px;
+			}
+			.con_list ul{
+				width: 210px;
+				height: 362px;
+				background: #fafafa;
+				border: 1px solid #e5e5e5;
+			}
+			.con_list ul li{
+				font-size: 14px;
+				line-height: 35px;
+				color: #333;
+				padding-left: 10px;
+			}
+			
+			.con_list ul li:hover{
+				background: #039AE3;
+				color: #fff;
+				cursor: pointer;/*鼠标光标改成小手*/
+			}
+			.con_list ul li.sel{
+				background: #039AE3;
+				color: #fff;
+			}
+			/*数据源操作*/
+			.con_btn{
+				width: 100px;
+				height: 270px;
+				float: left;
+				padding-top: 120px;
+			}
+			.con_btn a{
+				width: 80px;
+				height: 36px;
+				display: block;
+				margin: 15px auto;
+				text-align: center;
+				line-height: 36px;
+				background: #f3f3f3;
+				border: 1px solid #d9d9d9;
+				color:#333;
+				
+			}
+			
+			/*提交按钮*/
+			.sub{float: right;margin-right: 32px;}
+			.sub a{
+				width: 100px;
+				height: 40px;
+				display: block;
+				background: #039AE3;
+				text-align: center;
+				line-height: 40px;
+				color: #fff;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			产品 从那下手？
+				布局 —— 因为布局最先和用户进行沟通（用户看不懂也不想去懂后台逻辑）
+				布局里面每一个小板块 紧贴着产品，绝对不会脱轨
+			
+			
+		-->
+		<!--打开/关闭QQ好有选择板块-->
+		<a href="#" class="button">打开/关闭好友删选板块</a>
+		
+		<!--QQ好友删选板块-->
+		<div class="wrap">
+			<!--标题  该标签提示用户当前板块是做什么的？-->
+			<div class="title">
+				<h3>请选择需要添加的人</h3>
+				<a href="#" class="close" title="关闭">X</a>
+			</div>
+			
+			<!--内容板块 数据源区域板块 预览数据  数据操作  数据修改完毕存储-->
+			<div class="content clear">
+				<!--预览数据源-->
+				<div class="con_list list_left">
+					<h4>请选择你需要的人</h4>
+					<ul>
+						<li>苦瓜QQ：3479734419</li>
+						<li>慕颜QQ：1973954250</li>
+						<li>等待QQ：155460115</li>
+						<li>不忘初心QQ：1334723451</li>
+						<li>大表哥QQ：820839841</li>
+						<li>清写淡妙QQ：949684824</li>
+						<li>梦梦QQ：1990000769</li>
+						<li>小樱QQ：3055287105</li>
+						
+					</ul>
+				</div>
+				<!--数据操作-->
+				<div class="con_btn">
+					<a href="#" class="add">添加</a>
+					<a href="#" class="del">删除</a>
+				</div>
+				<!--修改完毕数据存储-->
+				<div class="con_list list_right">
+					<h4>确认你选中数据</h4>
+					<ul>
+					</ul>
+				</div>
+			</div>
+			
+			<!--提交按钮-->
+			<div class="sub">
+				<a href="#">确定</a>
+			</div>
+			
+		</div>
+		
+		
+		<script src="js/jquery-1.11.1.min.js"></script>
+		
+		<script>
+			
+			//好友板块 区域打开或者关闭
+			$(".button").click(function(){
+				
+				/*
+				  show();jqueyr 显示方法
+				  hide();隐藏方法
+				  
+				  toglle ------ 通过不同触发事件次数 执行不同函数操作
+				  比如说，当前是隐藏 点击他 显示  显示 点击 隐藏
+				 * */
+				$(".wrap").toggle("slow");//显示隐藏块
+				$(".wrap").show().addClass("perspectiveLeft"); //给显示/隐藏时候添加动画
+			});
+			
+			
+			//预览数据源操作 选中操作
+			$(".list_left li").click(function(){
+				console.log("你在操作预览数据源");
+				$(this).toggleClass("sel");//获取当前选中  选中指标 背景色
+			});
+			
+			//数据源操作 添加 把预览元数据添加到村粗数据源
+			$(".add").click(function(){
+				console.log("你确定要添加数据");
+				var selVal = $(".list_left ul").find(".sel");
+				console.log(selVal);
+				$(".list_right ul").append(selVal.removeClass("sel").addClass("sel"));
+			});
+			
+			//数据源操作 删除
+			$(".del").click(function(){
+				var selVal =$(".list_right ul").find(".sel");
+				$(".list_left").append(selVal.removeClass("sel"));
+			});
+		</script>
+		
+	</body>
+</html>
